@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import HamburgerMenu from "./Components/HamburgerMenu/HamburgerMenu";
-
+import HamburgerMenu from "./Components/HamburgerMenu";
+import HrUnderMenu from "./Components/HrUnderMenu";
+import Title from "./Components/Title";
+import Paragraph from "./Components/Paragraph";
+import Footer from "./Components/Footer";
+import StoryItem from "./Components/StoryItem";
 const AppWrapper = styled.div`
-display:flex;
-flex-direction:column
-width:100%;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 `;
 
 function App() {
@@ -44,6 +48,21 @@ function App() {
         defaultState={defaultState}
         setDefaultState={setDefaultState}
       />
+      <HrUnderMenu />
+      <Title />
+      <Paragraph />
+      <Footer>
+        {data.map((item) => {
+          return (
+            <StoryItem
+              key={item.id}
+              item={item}
+              setStoriesVisible={setStoriesVisible}
+              storiesVisible={storiesVisible}
+            />
+          );
+        })}
+      </Footer>
     </AppWrapper>
   );
 }
