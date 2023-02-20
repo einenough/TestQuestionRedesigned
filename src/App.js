@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styled from "styled-components";
+import HamburgerMenu from "./Components/HamburgerMenu/HamburgerMenu";
+
+const AppWrapper = styled.div`
+display:flex;
+flex-direction:column
+width:100%;
+`;
 
 function App() {
+  const data = [
+    {
+      id: 1,
+      name: "Статьи",
+      indicator: "#F5F879",
+      photos: [],
+      title: "Как научиться вставать пораньше",
+      description: "И чувствовать себя бодро весь день",
+    },
+    {
+      id: 2,
+      name: "Курсы",
+      indicator: "#42A2D9",
+      photos: [],
+      title: "Как восстанавливаться не выезжая из города",
+      description: "Простые упражнения для полного восстановления сил",
+    },
+    {
+      id: 3,
+      name: "Медиа",
+      indicator: "#42D963",
+      photos: [],
+      title: "Начните медитировать уже сейчас",
+      description: "6 медитаций на каждый день",
+    },
+  ];
+  const [openWindow, setOpenWindow] = useState(false);
+  const [storiesVisible, setStoriesVisible] = useState(0);
+  const [defaultState, setDefaultState] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppWrapper>
+      <HamburgerMenu
+        defaultState={defaultState}
+        setDefaultState={setDefaultState}
+      />
+    </AppWrapper>
   );
 }
 
