@@ -11,8 +11,8 @@ const PForSIP = styled.p`
   font-family: "Rubik", sans-serif;
 `;
 
-const PForSI = () => {
-  return <PForSIP></PForSIP>;
+const PForSI = ({ children }) => {
+  return <PForSIP>{children}</PForSIP>;
 };
 
 export default PForSI;

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import image_184 from "./icons";
+
 const ContentStoryDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -7,11 +9,11 @@ const ContentStoryDiv = styled.div`
   justify-content: flex-end;
   width: 100%;
   height: 100%;
-  background-image: url("../assets/image\ 184.png");
+
   background-size: 500px 680px;
 `;
-const ContentStory = () => {
-  return <ContentStoryDiv></ContentStoryDiv>;
+const ContentStory = ({ children }) => {
+  return <ContentStoryDiv>{children}</ContentStoryDiv>;
 };
 
 export default ContentStory;

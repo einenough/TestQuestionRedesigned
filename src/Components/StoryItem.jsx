@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import OpenStories from "./OpenStories";
-import Stories from "./Stories";
-import ButtonTogether from "./ButtonTogether";
 import FooterBtn from "./FooterBtn";
 import BorderBtn from "./BorderBtn";
-import ContentStory from "./ContentStory";
-import HeaderForSI from "./HeaderForSI";
-import PForSI from "./PForSI";
+import StoriesStyle from "./Stories";
+import OpenButton from "./OpenButton";
 
 const StoryItem = ({
   setStoriesVisible,
@@ -17,20 +14,26 @@ const StoryItem = ({
   setOpenWindow,
 }) => {
   return (
-    <Stories onClick={() => setStoriesVisible(item.id)}>
+    <StoriesStyle onClick={() => setStoriesVisible(item.id)}>
       {storiesVisible === item.id && <OpenStories />}
-      <ButtonTogether>
-        <FooterBtn />
+      <ButtonTogetherBtn>
+        <FooterBtn item={item} />
         <BorderBtn color={item.indicator} />
-      </ButtonTogether>
+      </ButtonTogetherBtn>
       {storiesVisible === item.id && (
-        <ContentStory onClick={() => setOpenWindow(openWindow(true))}>
-          <HeaderForSI>{item.title}</HeaderForSI>
-          <PForSI>{item.description}</PForSI>
-        </ContentStory>
+        <OpenButton openWindow={openWindow} setOpenWindow={setOpenWindow} />
+        {openWindow && (<OpenStories />)}
       )}
-    </Stories>
+    </StoriesStyle>
   );
 };
 
+const ButtonTogetherBtn = styled.button`
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  height: 53px;
+`;
 export default StoryItem;

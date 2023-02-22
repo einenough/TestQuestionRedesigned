@@ -12,8 +12,8 @@ const HeaderForSIH = styled.h1`
   font-family: "Rubik", sans-serif;
 `;
 
-const HeaderForSI = () => {
-  return <HeaderForSIH></HeaderForSIH>;
+const HeaderForSI = ({ children }) => {
+  return <HeaderForSIH>{children}</HeaderForSIH>;
 };
 
 export default HeaderForSI;

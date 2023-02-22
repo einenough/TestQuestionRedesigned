@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import HamburgerMenu from "./Components/HamburgerMenu";
-import HrUnderMenu from "./Components/HrUnderMenu";
-import Title from "./Components/Title";
-import Paragraph from "./Components/Paragraph";
-import Footer from "./Components/Footer";
-import StoryItem from "./Components/StoryItem";
+import HamburgerMenu from "./components/HamburgerMenu";
+import HrUnderMenu from "./components/HrUnderMenu";
+import Title from "./components/Title";
+import Paragraph from "./components/Paragraph";
+
+import StoryItem from "./components/StoryItem";
 const AppWrapper = styled.div`
   position: fixed;
   width: 100%;
@@ -45,26 +45,41 @@ function App() {
   return (
     <AppWrapper>
       <HamburgerMenu
+        href="/"
         defaultState={defaultState}
         setDefaultState={setDefaultState}
       />
       <HrUnderMenu />
       <Title />
       <Paragraph />
-      <Footer>
-        {data.map((item) => {
-          return (
-            <StoryItem
-              key={item.id}
-              item={item}
-              setStoriesVisible={setStoriesVisible}
-              storiesVisible={storiesVisible}
-            />
-          );
-        })}
-      </Footer>
+      <FooterOfFooter>
+        <FooterDiv>
+          {data.map((item) => {
+            return (
+              <StoryItem
+                key={item.id}
+                item={item}
+                setStoriesVisible={setStoriesVisible}
+                storiesVisible={storiesVisible}
+              />
+            );
+          })}
+        </FooterDiv>
+      </FooterOfFooter>
     </AppWrapper>
   );
 }
+const FooterOfFooter = styled.footer``;
 
+const FooterDiv = styled.div`
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding: 0px 15px;
+  gap: 16px;
+`;
 export default App;

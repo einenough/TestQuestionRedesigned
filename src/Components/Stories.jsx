@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-
 const StoriesStyle = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -11,15 +9,4 @@ const StoriesStyle = styled.div`
   background-color: #333333;
   transition: all 1s ease-in-out;
 `;
-
-const Stories = ({
-  setStoriesVisible,
-  storiesVisible,
-  item,
-  openWindow,
-  setOpenWindow,
-}) => {
-  return <StoriesStyle></StoriesStyle>;
-};
-
-export default Stories;
+export default StoriesStyle;

@@ -13,14 +13,8 @@ const OpenStoriesStyle = styled.div`
   transition: all 1s ease-in-out;
 `;
 
-const OpenStories = ({
-  setStoriesVisible,
-  storiesVisible,
-  item,
-  openWindow,
-  setOpenWindow,
-}) => {
-  return <OpenStoriesStyle></OpenStoriesStyle>;
+const OpenStories = ({ children }) => {
+  return <OpenStoriesStyle>{children}</OpenStoriesStyle>;
 };
 
 export default OpenStories;
