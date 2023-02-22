@@ -9,7 +9,7 @@ const Global = createGlobalStyle`
    margin:0px;
    box-sizing:border-box
    font-family:"Rubik", sans-serif;
-   width:100%;
+ 
 }
 `;
 const root = ReactDOM.createRoot(document.getElementById("root"));

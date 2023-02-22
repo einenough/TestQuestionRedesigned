@@ -7,7 +7,6 @@ const OpenStoriesStyle = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 456px;
-  height: 734px;
   height: fit-content;
   background-color: #333333;
   transition: all 1s ease-in-out;
