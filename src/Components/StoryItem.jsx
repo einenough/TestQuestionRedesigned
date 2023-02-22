@@ -22,8 +22,8 @@ const StoryItem = ({
       </ButtonTogetherBtn>
       {storiesVisible === item.id && (
         <OpenButton openWindow={openWindow} setOpenWindow={setOpenWindow} />
-        {openWindow && (<OpenStories />)}
       )}
+      {openWindow && <OpenStories />}
     </StoriesStyle>
   );
 };
