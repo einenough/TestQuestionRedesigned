@@ -37,20 +37,32 @@ const OpenButton = ({
   isOpen,
   setStoriesVisible,
   storiesVisible,
+  hideStories,
+  setHideStories,
 }) => {
   console.log(item);
   return (
     <WrapperOfAll
+      Wrap
       item={item}
       image={image}
-      onClick={() => setOpenWindow(!openWindow)}
+      // onClick={() => setOpenWindow(!openWindow)}
     >
-      <ContentStoryDiv onClick={() => console.log(setIsOpen(!isOpen))}>
-        {isOpen ? (
-          setStoriesVisible(0) && <WhenOpenStory />
-        ) : (
-          <ContentStory image={image} item={item} />
-        )}
+      <ContentStoryDiv setIsOpen={setIsOpen} isOpen={isOpen}>
+        <ContentStory
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          onClick={(item = 0) => {
+            setStoriesVisible(item);
+            // setOpenWindow(!isOpen);
+            console.log(storiesVisible);
+            console.log(openWindow);
+          }}
+          image={image}
+          item={item}
+          hideStories={hideStories}
+          setHideStories={setHideStories}
+        />
       </ContentStoryDiv>
     </WrapperOfAll>
   );

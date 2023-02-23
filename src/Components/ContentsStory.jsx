@@ -23,9 +23,22 @@ const MainDiv = styled.div`
   width: 100%;
   height: 100%;
 `;
-const ContentStory = ({ image, item }) => {
+const ContentStory = ({
+  image,
+  item,
+  setIsOpen,
+  isOpen,
+  hideStories,
+  setHideStories,
+}) => {
   return (
-    <MainDiv>
+    <MainDiv
+      onClick={() => {
+        setIsOpen(!isOpen);
+        setHideStories(!hideStories);
+        console.log(!hideStories);
+      }}
+    >
       {item.photos.map((image) => (
         <ImgInDiv src={image}></ImgInDiv>
       ))}

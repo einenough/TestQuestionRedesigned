@@ -8,49 +8,63 @@ import imageTest from "./icons/image_184.png";
 import imageTest2 from "./icons/1212.png";
 import StoryItem from "./components/StoryItem";
 import { data } from "./mocks/mockData";
+import WhenOpenStory from "./components/WhenOpenStory";
+// filter: ${(props) => (props.hideStories ? "blur(5px)" : "none")};
 
 const AppWrapper = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
 `;
+const HalfWrapper = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  filter: ${(props) => (props.hideStories ? "blur(5px)" : "none")};
+`;
 
 function App() {
   const ArrayOfImg = [{ number: imageTest }, { number: imageTest2 }];
-
+  const [hideStories, setHideStories] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [openWindow, setOpenWindow] = useState(false);
   const [storiesVisible, setStoriesVisible] = useState(0);
   const [defaultState, setDefaultState] = useState(true);
   return (
     <AppWrapper>
-      <HamburgerMenu
-        href="/"
-        defaultState={defaultState}
-        setDefaultState={setDefaultState}
-      />
-      <HrUnderMenu />
-      <Title />
-      <Paragraph />
-      <FooterOfFooter>
-        <FooterDiv>
-          {data.map((item) => {
-            return (
-              <StoryItem
-                key={item.id}
-                item={item}
-                setStoriesVisible={setStoriesVisible}
-                storiesVisible={storiesVisible}
-                image={ArrayOfImg}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                openWindow={openWindow}
-                setOpenWindow={setOpenWindow}
-              />
-            );
-          })}
-        </FooterDiv>
-      </FooterOfFooter>
+      <HalfWrapper hideStories={hideStories}>
+        <HamburgerMenu
+          href="/"
+          defaultState={defaultState}
+          setDefaultState={setDefaultState}
+        />
+        <HrUnderMenu />
+        <Title />
+        <Paragraph />
+        <FooterOfFooter>
+          <FooterDiv>
+            {data.map((item) => {
+              return (
+                <StoryItem
+                  key={item.id}
+                  item={item}
+                  setStoriesVisible={setStoriesVisible}
+                  storiesVisible={storiesVisible}
+                  image={ArrayOfImg}
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                  openWindow={openWindow}
+                  setOpenWindow={setOpenWindow}
+                  hideStories={hideStories}
+                  setHideStories={setHideStories}
+                />
+              );
+            })}
+            {/* {isOpen === true && <WhenOpenStory />} */}
+          </FooterDiv>
+        </FooterOfFooter>
+      </HalfWrapper>
+      {hideStories === true && <WhenOpenStory />}
     </AppWrapper>
   );
 }
