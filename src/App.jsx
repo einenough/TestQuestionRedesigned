@@ -37,6 +37,14 @@ function App() {
           href="/"
           defaultState={defaultState}
           setDefaultState={setDefaultState}
+          setHideStories={setHideStories}
+          hideStories={hideStories}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          openWindow={openWindow}
+          setOpenWindow={setOpenWindow}
+          storiesVisible={storiesVisible}
+          setStoriesVisible={setStoriesVisible}
         />
         <HrUnderMenu />
         <Title />
@@ -64,7 +72,12 @@ function App() {
           </FooterDiv>
         </FooterOfFooter>
       </HalfWrapper>
-      {hideStories === true && <WhenOpenStory />}
+      {hideStories === true && (
+        <WhenOpenStory
+          hideStories={hideStories}
+          setHideStories={setHideStories}
+        />
+      )}
     </AppWrapper>
   );
 }
